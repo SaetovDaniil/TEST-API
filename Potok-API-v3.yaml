@@ -5,7 +5,7 @@ info:
   title: Potok API
   version: v3
   description: |-
-    # Общая информ.
+    # Общая информация
     API Potok позволяет клиентам получать информацию путем отправки запроса на сервера Potok
     * Все методы API Potok  работают по протоколу HTTPS;
     * Даты форматируются в соответствии с [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss.mmm±hh:mm`.
@@ -57,8 +57,7 @@ paths:
       tags:
         - вакансии
       operationId: get-api-v3-jobs.json
-      description: |
-        Данное API позволяет получить массив списка вакансий. Метод возвращает статические поля, а также все динамические поля, набор которых зависит от настроек формы вакансии. Описание приведено для стандартной формы, в случае ее изменения метод может возвращать другой набор полей.
+      description: asdasdasd
       parameters:
         - schema:
             type: string
@@ -469,7 +468,7 @@ paths:
         '422':
           $ref: '#/components/responses/422'
       operationId: post-api-v3-jobs.json
-      description: 'Данное API позволяет создать вакансию. Метод возвращает статические поля, а также все динамические поля, набор которых зависит от настроек формы вакансии. Описание приведено для стандартной формы, в случае ее изменения метод может возвращать другой набор полей.'
+      description: asdasd
       requestBody:
         content:
           application/json:
