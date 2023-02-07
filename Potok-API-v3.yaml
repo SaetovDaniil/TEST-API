@@ -5,6 +5,7 @@ info:
   title: Potok API
   version: v3
   description: |-
+
     # Общая информацияqqqqweqwww
     API Potok позволяет клиентам получать информацию путем отправки запроса на сервера Potok
     * Все методы API Potok  работают по протоколу HTTPS;
