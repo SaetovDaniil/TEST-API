@@ -6,7 +6,6 @@ info:
   version: v3
   description: |-
     # Общая информ.
-    +1 +2 +3
     API Potok позволяет клиентам получать информацию путем отправки запроса на сервера Potok
     * Все методы API Potok  работают по протоколу HTTPS;
     * Даты форматируются в соответствии с [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601): `YYYY-MM-DDThh:mm:ss.mmm±hh:mm`.
