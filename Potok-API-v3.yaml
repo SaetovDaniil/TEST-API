@@ -57,7 +57,7 @@ paths:
       tags:
         - вакансии
       operationId: get-api-v3-jobs.json
-      description: ''
+      description: asdasd
       parameters:
         - schema:
             type: string
@@ -95,7 +95,6 @@ paths:
           content:
             application/json:
               schema:
-                description: ''
                 type: object
                 x-examples:
                   example-1:
@@ -774,7 +773,7 @@ paths:
       description: |-
         Данное API позволяет получить вакансию по ID. Метод возвращает статические поля, а также все динамические поля, набор которых зависит от настроек формы вакансии. Описание приведено для стандартной формы, в случае ее изменения метод может возвращать другой набор полей.
 
-        Если вакансия по запрашиваемому ID не найдена, то в ответе Potok вернет NULL с кодом 200 OK (текущая особенность системы)
+        Если вакансия по запрашиваемому ID не найдена, то в ответе Potok вернет NULL с кодом 200 OK (текущая особенность системы)фв
       parameters: []
     parameters:
       - schema:
