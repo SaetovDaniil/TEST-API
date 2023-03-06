@@ -5,7 +5,7 @@ info:
   title: Potok API
   version: v3
   description: |-
-    # Общая информация
+    # Общая информацияяяя
 
     API Potok позволяет клиентам получать информацию путем отправки  на сервера Potok
     * Все методы  Potok  работают по протоколу HTTPS;
@@ -44,7 +44,6 @@ info:
     Для создания токена нужно указать его название и нажать кнопку **Создать токен**. Новый токен появится в списке действующих токенов. Удалить токен можно с помощью иконки с корзиной рядом с ним.
 
     В случае ошибки аутентификации появится ошибка `401`fasdfasdfasdf
-
   summary: test
   contact:
     name: Daniel
@@ -469,7 +468,7 @@ paths:
         '422':
           $ref: '#/components/responses/422'
       operationId: post-api-v3-jobs.json
-      description: asdasd
+      description: asdasdфывфывфывфывфыв
       requestBody:
         content:
           application/json:
