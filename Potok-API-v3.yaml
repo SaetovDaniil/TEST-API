@@ -57,7 +57,7 @@ paths:
       tags:
         - вакансии
       operationId: get-api-v3-jobs.json
-      description: ''
+      description: asdasd
       parameters:
         - schema:
             type: string
@@ -95,7 +95,6 @@ paths:
           content:
             application/json:
               schema:
-                description: ''
                 type: object
                 x-examples:
                   example-1:
