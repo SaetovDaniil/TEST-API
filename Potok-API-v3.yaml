@@ -289,74 +289,12 @@ paths:
       tags:
         - вакансии
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  description:
-                    type: string
-                  city:
-                    type: integer
-                  salary_from:
-                    type: integer
-                  salary_to:
-                    type: integer
-                  employment_type:
-                    type: string
-                  experience_type:
-                    type: string
-                  schedule_type:
-                    type: string
-                  currency_type:
-                    type: string
-                  key_skills:
-                    type: array
-                    items:
-                      type: string
-                  job_type:
-                    type: string
-                  is_draft:
-                    type: boolean
-                  company_department_id:
-                    type: integer
-                  demand:
-                    type: integer
-                  private:
-                    type: boolean
-                  closure_date:
-                    type: string
-                  additional_info:
-                    type: string
-                x-examples:
-                  Example 1:
-                    name: Начальник технического отдела
-                    description: Вакансия для тех. отдела ООО Аврора
-                    city: 1
-                    salary_from: 100000
-                    salary_to: 200000
-                    employment_type: full
-                    experience_type: noExperience
-                    schedule_type: fullDay
-                    currency_type: RUR
-                    key_skills:
-                      - стрессоустойчивость
-                    job_type: point
-                    is_draft: false
-                    company_department_id: 0
-                    demand: 1
-                    private: false
-                    closure_date: '2023-07-17'
-                    additional_info: закрыть как можно скорее
         '201':
           description: Created
           content:
             application/json:
               schema:
+                description: ''
                 type: object
                 x-examples:
                   example-1:
@@ -426,8 +364,6 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Job'
-                  '':
-                    $ref: '#/components/schemas/stages'
               examples:
                 Пример ответа:
                   value:
@@ -528,33 +464,111 @@ paths:
           $ref: '#/components/responses/400'
         '401':
           description: Отказ в доступе. Неверная авторизация или аутентификация
-        '404':
-          description: Описание ошибки
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Example 1:
-                  value: {}
-                Example 2:
-                  value: {}
-                Пример ответа 2:
-                  value: Схема 2
-                Пример ответа 1:
-                  value: Схема 1
         '422':
           $ref: '#/components/responses/422'
       operationId: post-api-v3-jobs.json
-      description: 'Создание новой вакансии. Описание приведено для стандартной формы, в случае ее изменения метод может принимать другой набор полей или иметь отличные от описанного валидации. Метод возвращает данные созданной вакансии: статические поля, а также все динамические поля, набор которых зависит от настроек формы вакансии.'
+      description: asdasdфывфывфывфывфыв
       requestBody:
         content:
           application/json:
             schema:
+              description: ''
               type: object
               x-examples:
-                Example 1:
+                example-1:
+                  name: string
+                  description: string
+                  city: 0
+                  salary_from: 0
+                  salary_to: 0
+                  employment_type: string
+                  experience_type: string
+                  schedule_type: string
+                  currency_type: string
+                  code: 0
+                  form: {}
+                  key_skills:
+                    - string
+                  job_type: string
+                  is_draft: true
+                  company_department_id: 0
+              properties:
+                name:
+                  type: string
+                  description: Название вакансии
+                description:
+                  type: string
+                  description: Описание вакансии
+                city:
+                  type: number
+                  description: |-
+                    ID Города вакансии
+
+                    Источник - словарь cities
+                salary_from:
+                  type: number
+                  description: Ожидаемая ЗП от
+                salary_to:
+                  type: number
+                  description: Ожидаемая ЗП до
+                employment_type:
+                  type: string
+                  description: ID Занятости (словарь - `employment_type`)
+                experience_type:
+                  type: string
+                  description: ID Опыта работы (словарь - `experience_type`)
+                schedule_type:
+                  type: string
+                  description: ID Графика работы (словарь - `schedule_type`)
+                currency_type:
+                  type: string
+                  description: ID Валюты (словарь - `currency_type`)
+                key_skills:
+                  description: Массив ключевых навыков
+                  type: array
+                  items:
+                    type: string
+                job_type:
+                  type: string
+                  description: |-
+                    Направление подбора вакансии
+
+                    `point` - точечный подбор
+
+                    `mass` - массовый подбор
+                is_draft:
+                  type: boolean
+                  description: |-
+                    Признак черновика вакансии
+
+                    `true` - черновик вакансии
+
+                    `false` - вакансия не является черновиком
+                company_department_id:
+                  type: number
+                  description: 'ID Отдела. Может быть получен из `GET /api/v2/company_departments.json`, механизм аутентификации аналогичен'
+                demand:
+                  type: number
+                  description: Количество вакантных мест
+                private:
+                  description: |-
+                    Признак конфиденциальности вакансии
+
+                    `true` - конфиденциальная вакансия
+
+                    `false` - неконфиденциальная вакансия
+                  type: boolean
+                closure_date:
+                  type: string
+                  description: Ожидаемая дата закрытия
+                additional_info:
+                  type: string
+                  description: Комментарий к вакансии
+              required:
+                - name
+            examples:
+              Пример запроса:
+                value:
                   name: Начальник технического отдела
                   description: Вакансия для тех. отдела ООО Аврора
                   city: 1
@@ -568,111 +582,15 @@ paths:
                     - стрессоустойчивость
                   job_type: point
                   is_draft: false
-                  company_department_id: 0
+                  company_department_id: ''
                   demand: 1
                   private: false
-                  closure_date: '2023-07-17'
+                  closure_date: '2023-07-17T10:38:55.904+03:00'
                   additional_info: закрыть как можно скорее
-              properties:
-                name:
-                  type: string
-                  description: Название вакансии
-                  default: пример
-                  example: пример
-                description:
-                  type: string
-                city:
-                  type: integer
-                salary_from:
-                  type: integer
-                salary_to:
-                  type: integer
-                employment_type:
-                  type: string
-                experience_type:
-                  type: string
-                schedule_type:
-                  type: string
-                currency_type:
-                  type: string
-                key_skills:
-                  type: array
-                  items:
-                    type: string
-                job_type:
-                  type: string
-                is_draft:
-                  type: boolean
-                company_department_id:
-                  type: integer
-                demand:
-                  type: integer
-                private:
-                  type: boolean
-                closure_date:
-                  type: string
-                additional_info:
-                  type: string
-              required:
-                - name
-            examples:
-              Пример запроса:
-                value:
-                  name: пример
-                  description: string
-                  city: 0
-                  salary_from: 0
-                  salary_to: 0
-                  employment_type: вапва
-                  experience_type: string
-                  schedule_type: string
-                  currency_type: string
-                  key_skills:
-                    - string
-                  job_type: string
-                  is_draft: true
-                  company_department_id: 0
-                  demand: 0
-                  private: true
-                  closure_date: string
-                  additional_info: string
         description: ''
       x-internal: false
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: dfgdf
-          description: dfgdf
     parameters: []
-    put:
-      summary: ываыва
-      operationId: put-jobs.json
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  '':
-                    type: string
-      description: ываыва
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: ываыва
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                '':
-                  type: string
-  '/jobs/.json/{id}':
+  '/jobs/{id}.json':
     get:
       summary: Получение вакансии по ID
       tags:
